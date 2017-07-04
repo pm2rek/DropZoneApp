@@ -14,10 +14,13 @@
 		<form:errors path="password" cssClass="error" element="div"/>
 		Password: <form:password path="password" /><br>
 		<form:errors path="firstName" cssClass="error" element="div" />
-		First Name:*<form:input path="firstName" /><br>
+		First Name: <form:input path="firstName" /><br>
 		<form:errors path="lastName" cssClass="error" element="div"/>
-		Last Name:* <form:input path="lastName" /><br>
-		<p>* - optional </p>
+		Last Name: <form:input path="lastName" /><br>
+		<form:errors path="insuranceNumber" cssClass="error" element="div"/>
+		Insurance Number: <form:input path="insuranceNumber" /><br>
+		<form:errors path="insuranceExpirationDate" cssClass="error" element="div"/>
+		Insurance Expiration Date: <form:input path="insuranceExpirationDate" /><br>
 		<input type="submit" value="Submit">
 
 	</form:form>
