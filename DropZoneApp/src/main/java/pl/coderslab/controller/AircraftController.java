@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.coderslab.model.Aircraft;
+import pl.coderslab.model.Flight;
 import pl.coderslab.repository.AircraftRepository;
 
 @Controller
@@ -36,12 +38,42 @@ public class AircraftController {
 	}
 
 	@RequestMapping(path = "/add", method = RequestMethod.POST)
-	public String processAddAircraft(@RequestParam int maxPassengers, @ModelAttribute Aircraft aircraft, BindingResult result, Model model) {
+	public String processAddAircraft(@RequestParam int maxPassengers, @ModelAttribute Aircraft aircraft,
+			BindingResult result, Model model) {
 		aircraft.setMaxPassengers(maxPassengers);
 		if (result.hasErrors()) {
 			return "aircraftForm";
 		}
 		aircraftRepository.save(aircraft);
+		return "redirect:/aircrafts/list";
+	}
+
+	// EDIT
+	@RequestMapping(path = "/edit/{id}", method = RequestMethod.GET)
+	public String editAircraft(Model model, @PathVariable Long id) {
+		model.addAttribute("aircraft", aircraftRepository.findOne(id));
+		return "aircraftForm";
+	}
+
+	@RequestMapping(path = "/edit/{id}", method = RequestMethod.POST)
+	public String processEditAircraft(@ModelAttribute Aircraft aircraft, BindingResult result) {
+		if (result.hasErrors()) {
+			return "aircraftForm";
+		}
+		aircraftRepository.save(aircraft);
+		return "redirect:/aircrafts/list";
+	}
+
+	// DELETE
+	@RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
+	public String removeAircraft(@PathVariable Long id, Model model) {
+		model.addAttribute("object", aircraftRepository.findOne(id));
+		return "confirmRemove";
+	}
+
+	@RequestMapping(path = "/delete/{id}", method = RequestMethod.POST)
+	public String processRemoveAircraft(@ModelAttribute Aircraft aircraft) {
+		aircraftRepository.delete(aircraft);
 		return "redirect:/aircrafts/list";
 	}
 }
