@@ -60,8 +60,7 @@ public class MainViewController {
 	public String isAuthenticated(HttpServletRequest request) {
 		try {
 			String userId = request.getSession().getAttribute("userId").toString();
-			System.out.println(userId);
-			return "redirect:/tweets/list";
+			return "mainAppView";
 		} catch (Exception e) {
 			return "redirect:/login";
 		}

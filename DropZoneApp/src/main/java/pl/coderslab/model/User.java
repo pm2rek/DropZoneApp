@@ -4,10 +4,15 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class User {
@@ -20,14 +25,18 @@ public class User {
 	
 	private String lastName;
 	
+	@Email(message="Podaj wlasciwy email")
+	@Column(unique=true)
 	private String email;
 	
+	@NotBlank(message="nie moge byc puste")
 	private String password;
 	
 	private BigDecimal accountBalance;
 	
 	private int jumpsNumber;
 	
+	@OneToOne(mappedBy="user")
 	private Parachute parachute;
 	
 	private Long insuranceNumber;

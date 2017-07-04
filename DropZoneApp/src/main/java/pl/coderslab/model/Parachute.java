@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.Future;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Parachute {
@@ -14,16 +18,21 @@ public class Parachute {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank
 	private String mainParachuteName;
 	
+	@NotBlank
 	private String reserveParachuteName;
 	
+	@NotBlank
 	private String ADDName;
 	
+	@Future
 	private Date expirationDate;
 	
 	private String type;
 	
+	@OneToOne
 	private User user;
 
 	public Long getId() {

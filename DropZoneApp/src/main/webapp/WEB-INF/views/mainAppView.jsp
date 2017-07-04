@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="./tweets/list"> Tweets</a>
+Hello World!
+	
 </body>
 </html>
