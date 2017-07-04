@@ -31,13 +31,13 @@ public class UserController {
 	public String editUser(Model model, @PathVariable Long id) {
 		model.addAttribute("user", userRepository.findOne(id));
 		model.addAttribute("path", "/users");
-		return "registerForm";
+		return "editForm";
 	}
 
 	@RequestMapping(path = "/edit/{id}", method = RequestMethod.POST)
 	public String processEditUser(@ModelAttribute User user, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "registerForm";
+			return "editForm";
 		}
 		userRepository.save(user);
 		return "redirect:/users/list";
@@ -46,7 +46,7 @@ public class UserController {
 	// DELETE
 	@RequestMapping(path = "/delete/{id}", method = RequestMethod.GET)
 	public String removeUser(@PathVariable Long id, Model model) {
-		model.addAttribute("user", userRepository.findOne(id));
+		model.addAttribute("object", userRepository.findOne(id));
 		return "confirmRemove";
 	}
 

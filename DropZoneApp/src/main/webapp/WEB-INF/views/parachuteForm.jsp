@@ -21,6 +21,6 @@
 		<input type="submit" value="Submit">
 
 	</form:form>
-	<a href="../aircrafts/list"> back</a>
+	<a href="../list"> back</a>
 </body>
 </html>

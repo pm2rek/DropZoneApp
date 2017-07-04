@@ -10,7 +10,7 @@
 </head>
 <body>
 	<form:form method="post"> 
-		${user} <br>
+		${object} <br>
 		<input type="submit" value="Confirm remove">
 	</form:form>
 	<a href="../list"> cancel</a>
