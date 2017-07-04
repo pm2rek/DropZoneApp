@@ -65,4 +65,9 @@ public class MainViewController {
 			return "redirect:/login";
 		}
 	}
+	@RequestMapping(path = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) {
+		request.getSession().removeAttribute("userId");
+			return "logout";
+	}
 }

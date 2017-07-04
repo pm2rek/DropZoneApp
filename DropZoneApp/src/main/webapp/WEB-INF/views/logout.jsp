@@ -7,11 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hello World!
-	<a href="./logout"> Logout</a>
-	<a href="./users/list"> Users</a>
-	<a href="./aircrafts/list"> Aircrafts</a>
-	<a href="./flights/list"> Flights</a>
-	<a href="./parachutes/list"> Parachutes</a>
+<p>Logout succesfull</p>
+<br>
+<a href="./login">Login</a>
+<a href="./register">Sign Up</a>
 </body>
 </html>
