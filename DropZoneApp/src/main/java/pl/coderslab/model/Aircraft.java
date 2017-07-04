@@ -72,7 +72,7 @@ public class Aircraft {
 
 	@Override
 	public String toString() {
-		return "AirCraft [id=" + id + ", name=" + name + ", registration=" + registration + "]";
+		return name + " " + registration;
 	}
 	
 	

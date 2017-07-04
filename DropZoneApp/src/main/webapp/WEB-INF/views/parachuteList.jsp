@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +24,7 @@
 			<td>${parachute.mainParachuteName}</td>
 			<td>${parachute.reserveParachuteName}</td>
 			<td>${parachute.ADDName}</td>
-			<td>${parachute.expirationDate}</td>
+			<td><fmt:formatDate value="${parachute.expirationDate}" pattern="yyyy-MM-dd"/></td>
 			<td>${parachute.user}</td>
 			<td><a href="edit/${parachute.id}" />edit </td>
 			<td><a href="delete/${parachute.id}" />delete </td>
