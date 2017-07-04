@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.model.Flight;
 import pl.coderslab.repository.AircraftRepository;
 import pl.coderslab.repository.FlightRepository;
+import pl.coderslab.repository.UserRepository;
 
 @Controller
 @RequestMapping("/flights")
@@ -22,6 +23,7 @@ public class FlightController {
 	
 	@Autowired
 	private AircraftRepository aircraftRepository;
+
 	//List
 	@RequestMapping(path = "/list", method = RequestMethod.GET)
 	public String showFlights(Model model) {
