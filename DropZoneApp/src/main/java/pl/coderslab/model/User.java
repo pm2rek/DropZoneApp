@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.validator.constraints.Email;
@@ -38,8 +39,8 @@ public class User {
 	
 	private int jumpsNumber;
 	
-	@OneToOne(mappedBy="user")
-	private Parachute parachute;
+	@OneToMany(mappedBy="user")
+	private List<Parachute> parachutes;
 	
 	private Long insuranceNumber;
 	
@@ -104,12 +105,12 @@ public class User {
 		this.jumpsNumber = jumpsNumber;
 	}
 
-	public Parachute getParachute() {
-		return parachute;
+	public List<Parachute> getParachutes() {
+		return parachutes;
 	}
 
-	public void setParachute(Parachute parachute) {
-		this.parachute = parachute;
+	public void setParachutes(List<Parachute> parachutes) {
+		this.parachutes = parachutes;
 	}
 
 	public Long getInsuranceNumber() {

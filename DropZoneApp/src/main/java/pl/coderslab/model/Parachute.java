@@ -1,14 +1,17 @@
 package pl.coderslab.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Future;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -27,13 +30,12 @@ public class Parachute {
 	@NotBlank
 	private String ADDName;
 	
-	@Future
 	private Date expirationDate;
 	
-	private String type;
-	
-	@OneToOne
+	@ManyToOne
 	private User user;
+	
+	private String type;
 
 	public Long getId() {
 		return id;
@@ -67,6 +69,14 @@ public class Parachute {
 		ADDName = aDDName;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Date getExpirationDate() {
 		return expirationDate;
 	}
@@ -83,13 +93,6 @@ public class Parachute {
 		this.type = type;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	@Override
 	public String toString() {

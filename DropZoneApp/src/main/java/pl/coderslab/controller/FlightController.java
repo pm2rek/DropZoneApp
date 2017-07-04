@@ -9,39 +9,41 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import pl.coderslab.model.Aircraft;
+import pl.coderslab.model.Flight;
 import pl.coderslab.repository.AircraftRepository;
+import pl.coderslab.repository.FlightRepository;
 
 @Controller
-@RequestMapping("/aircrafts")
-public class AircraftController {
+@RequestMapping("/flights")
+public class FlightController {
 
 	@Autowired
+	private FlightRepository flightRepository;
+	
+	@Autowired
 	private AircraftRepository aircraftRepository;
-
-	// List
+	//List
 	@RequestMapping(path = "/list", method = RequestMethod.GET)
-	public String showAircrafts(Model model) {
-		model.addAttribute("aircraft", aircraftRepository.findAll());
-		return "aircraftList";
+	public String showFlights(Model model) {
+		model.addAttribute("flight", flightRepository.findAll());
+		return "flightList";
 	}
-
-	// Add
+	
+	//Add
 	@RequestMapping(path = "/add", method = RequestMethod.GET)
-	public String showAddAircraft(Model model) {
-		model.addAttribute("aircraft", new Aircraft());
-		return "aircraftForm";
+	public String showAddFlight(Model model) {
+		model.addAttribute("flight", new Flight());
+		model.addAttribute("aircrafts", aircraftRepository.findAll());
+		return "flightForm";
 	}
-
+	
 	@RequestMapping(path = "/add", method = RequestMethod.POST)
-	public String processAddAircraft(@RequestParam int maxPassengers, @ModelAttribute Aircraft aircraft, BindingResult result, Model model) {
-		aircraft.setMaxPassengers(maxPassengers);
+	public String processAddFlight(@Valid @ModelAttribute Flight flight, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "aircraftForm";
+			return "flightForm";
 		}
-		aircraftRepository.save(aircraft);
-		return "redirect:/aircrafts/list";
+		flightRepository.save(flight);
+		return "redirect:/flights/list";
 	}
 }
