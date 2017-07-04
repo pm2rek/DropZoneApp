@@ -1,5 +1,6 @@
 package pl.coderslab.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class Aircraft {
 	private int maxPassengers;
 	
 	@OneToMany(mappedBy="aircraft")
-	private List<Load> loads;
+	private List<Flight> flights = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -61,12 +62,12 @@ public class Aircraft {
 		this.maxPassengers = maxPassengers;
 	}
 
-	public List<Load> getLoads() {
-		return loads;
+	public List<Flight> getFlights() {
+		return flights;
 	}
 
-	public void setLoads(List<Load> loads) {
-		this.loads = loads;
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
 	}
 
 	@Override

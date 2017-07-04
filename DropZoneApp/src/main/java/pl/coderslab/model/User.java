@@ -1,6 +1,7 @@
 package pl.coderslab.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.validator.constraints.Email;
@@ -43,7 +45,8 @@ public class User {
 	
 	private Date insuranceExpirationDate;
 	
-	private List<Load> loads;
+	@ManyToMany(mappedBy="users")
+	private List<Flight> flights = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -125,12 +128,12 @@ public class User {
 		this.insuranceExpirationDate = insuranceExpirationDate;
 	}
 
-	public List<Load> getLoads() {
-		return loads;
+	public List<Flight> getFlights() {
+		return flights;
 	}
 
-	public void setLoads(List<Load> loads) {
-		this.loads = loads;
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
 	}
 
 	@Override
