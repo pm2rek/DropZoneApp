@@ -1,5 +1,7 @@
 package pl.coderslab.controller;
 
+import java.sql.Timestamp;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.coderslab.model.User;
 import pl.coderslab.repository.UserRepository;
@@ -22,6 +25,8 @@ public class MainViewController {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	private final String TIME_ADD = " 00:00:00.0";
 	//REGISTRATION
 	@RequestMapping(path = "/register", method = RequestMethod.GET)
 	public String showRegistrationForm(Model model) {
@@ -30,7 +35,9 @@ public class MainViewController {
 	}
 
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
-	public String registerUSer(@ModelAttribute User user, Model model) {
+	public String registerUSer(@RequestParam String expiration, @ModelAttribute User user, Model model) {
+		Timestamp ts = Timestamp.valueOf(expiration+TIME_ADD);
+		user.setInsuranceExpirationDate(ts);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 		model.addAttribute("user", user);

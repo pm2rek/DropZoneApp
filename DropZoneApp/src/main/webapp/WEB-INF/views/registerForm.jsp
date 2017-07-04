@@ -19,8 +19,7 @@
 		Last Name: <form:input path="lastName" /><br>
 		<form:errors path="insuranceNumber" cssClass="error" element="div"/>
 		Insurance Number: <form:input path="insuranceNumber" /><br>
-		<form:errors path="insuranceExpirationDate" cssClass="error" element="div"/>
-		Insurance Expiration Date: <form:input path="insuranceExpirationDate" /><br>
+		Insurance Expiration Date: <input type="date" name="expiration"/><br>
 		<input type="submit" value="Submit">
 
 	</form:form>
