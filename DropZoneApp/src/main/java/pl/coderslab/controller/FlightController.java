@@ -1,5 +1,7 @@
 package pl.coderslab.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,6 +92,24 @@ public class FlightController {
 		@RequestMapping(path = "/delete/{id}", method = RequestMethod.POST)
 		public String processRemoveFlight(@ModelAttribute Flight flight) {
 			flightRepository.delete(flight);
+			return "redirect:/flights/list";
+		}
+		
+		// TIMER START
+		@RequestMapping(path = "/start/{id}", method = RequestMethod.GET)
+		public String timerStart(@PathVariable Long id) {
+			Flight flight = flightRepository.findOne(id);
+			flight.start();
+			flightRepository.save(flight);
+			return "redirect:/flights/list";
+		}
+		
+		// TIMER STOP
+		@RequestMapping(path = "/stop/{id}", method = RequestMethod.GET)
+		public String timerStop(@PathVariable Long id) {
+			Flight flight = flightRepository.findOne(id);
+			flight.stop();
+			flightRepository.save(flight);
 			return "redirect:/flights/list";
 		}
 }

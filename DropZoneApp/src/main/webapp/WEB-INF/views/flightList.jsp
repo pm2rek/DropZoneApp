@@ -20,7 +20,8 @@
 			<tr>
 				<td><fmt:formatDate value="${flight.date}" pattern="yyyy-MM-dd HH:mm" /></td>
 				<td>${flight.aircraft}</td>
-
+				<td><a href="start/${flight.id}" />Start</td>
+				<td><a href="stop/${flight.id}" />Stop</td>
 				<td><a href="edit/${flight.id}" />edit</td>
 				<td><a href="delete/${flight.id}" />delete</td>
 			</tr>

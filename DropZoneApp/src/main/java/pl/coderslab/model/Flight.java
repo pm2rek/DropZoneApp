@@ -85,4 +85,16 @@ public class Flight {
 		users.add(user);
 		}
 	}
+	
+	public void start() {
+		if(this.takeoff==null) {
+			setTakeoff(new Date());
+		}
+	}
+	
+	public void stop() {
+		if(this.landing==null) {
+			setLanding(new Date());
+		}
+	}
 }
