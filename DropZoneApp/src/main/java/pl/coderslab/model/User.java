@@ -145,4 +145,7 @@ public class User {
 		accountBalance= accountBalance.add(new BigDecimal(value));
 	}
 	
+	public void subtract(BigDecimal value) {
+		accountBalance= accountBalance.subtract(value);
+	}
 }
