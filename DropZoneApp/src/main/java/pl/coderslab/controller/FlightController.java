@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.coderslab.model.Flight;
+import pl.coderslab.model.User;
 import pl.coderslab.repository.AircraftRepository;
 import pl.coderslab.repository.FlightRepository;
 import pl.coderslab.repository.UserRepository;
@@ -23,12 +25,25 @@ public class FlightController {
 	
 	@Autowired
 	private AircraftRepository aircraftRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	//List
 	@RequestMapping(path = "/list", method = RequestMethod.GET)
 	public String showFlights(Model model) {
 		model.addAttribute("flight", flightRepository.findAll());
+		model.addAttribute("jumpers", userRepository.findAll());
 		return "flightList";
+	}
+	
+	@RequestMapping(path = "/list", method = RequestMethod.POST)
+	public String processShowFlight(@RequestParam String userId, @RequestParam String flightId) {
+		User user = userRepository.findOne(Long.parseLong(userId));
+		Flight flight = flightRepository.findOne(Long.parseLong(flightId));
+		flight.addUser(user);
+		flightRepository.save(flight);
+		return "redirect:/flights/list";
 	}
 	
 	//Add

@@ -79,4 +79,8 @@ public class Flight {
 	public void setLanding(Date landing) {
 		this.landing = landing;
 	}
+	
+	public void addUser(User user) {
+		users.add(user);
+	}
 }
