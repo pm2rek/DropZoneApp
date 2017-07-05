@@ -17,6 +17,7 @@ import pl.coderslab.model.User;
 import pl.coderslab.repository.AircraftRepository;
 import pl.coderslab.repository.FlightRepository;
 import pl.coderslab.repository.UserRepository;
+import pl.coderslab.service.FlightService;
 
 @Controller
 @RequestMapping("/flights")
@@ -30,6 +31,9 @@ public class FlightController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private FlightService flightService;
 
 	//List
 	@RequestMapping(path = "/list", method = RequestMethod.GET)
@@ -108,7 +112,7 @@ public class FlightController {
 		@RequestMapping(path = "/stop/{id}", method = RequestMethod.GET)
 		public String timerStop(@PathVariable Long id) {
 			Flight flight = flightRepository.findOne(id);
-			flight.stop();
+			flightService.finishFlight(flight);
 			flightRepository.save(flight);
 			return "redirect:/flights/list";
 		}

@@ -93,7 +93,7 @@ public class Flight {
 	}
 	
 	public void stop() {
-		if(this.landing==null) {
+		if(this.landing==null && this.takeoff!=null) {
 			setLanding(new Date());
 		}
 	}

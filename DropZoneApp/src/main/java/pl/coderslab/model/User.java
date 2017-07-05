@@ -148,4 +148,8 @@ public class User {
 	public void subtract(BigDecimal value) {
 		accountBalance= accountBalance.subtract(value);
 	}
+	
+	public void increaseJumpsNumber() {
+		jumpsNumber++;
+	}
 }
