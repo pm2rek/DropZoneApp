@@ -35,7 +35,7 @@ public class User {
 	@NotBlank(message="nie moge byc puste")
 	private String password;
 	
-	private BigDecimal accountBalance;
+	private BigDecimal accountBalance = new BigDecimal(0);
 	
 	private int jumpsNumber;
 	
@@ -140,6 +140,10 @@ public class User {
 	@Override
 	public String toString() {
 		return firstName + " " + lastName;
+	}
+	
+	public void payment(String value) {
+		accountBalance= accountBalance.add(new BigDecimal(value));
 	}
 	
 }

@@ -20,6 +20,7 @@
 			<td>${user.firstName}</td>
 			<td>${user.lastName}</td>
 			<td>${user.email}</td>
+			<td><a href="payment/${user.id}" />Payment </td>
 			<td><a href="edit/${user.id}" />edit </td>
 			<td><a href="delete/${user.id}" />delete </td>
 		</tr>
