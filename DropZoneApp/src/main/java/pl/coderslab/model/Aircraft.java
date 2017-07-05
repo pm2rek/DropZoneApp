@@ -1,5 +1,6 @@
 package pl.coderslab.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,8 @@ public class Aircraft {
 	
 	@NotBlank
 	private int maxPassengers;
+	
+	private BigDecimal ticketPrice = new BigDecimal(0);
 	
 	@OneToMany(mappedBy="aircraft")
 	private List<Flight> flights = new ArrayList<>();
@@ -68,6 +71,14 @@ public class Aircraft {
 
 	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
+	}
+
+	public BigDecimal getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public void setTicketPrice(BigDecimal ticketPrice) {
+		this.ticketPrice = ticketPrice;
 	}
 
 	@Override

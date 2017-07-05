@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hello World!
 	<a href="./logout"> Logout</a>
 	<a href="./users/list"> Users</a>
 	<a href="./aircrafts/list"> Aircrafts</a>

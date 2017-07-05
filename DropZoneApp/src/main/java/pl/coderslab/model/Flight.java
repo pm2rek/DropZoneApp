@@ -81,6 +81,8 @@ public class Flight {
 	}
 	
 	public void addUser(User user) {
+		if(users.size()<aircraft.getMaxPassengers()&& user.getAccountBalance().compareTo(aircraft.getTicketPrice())>=0 ) {
 		users.add(user);
+		}
 	}
 }

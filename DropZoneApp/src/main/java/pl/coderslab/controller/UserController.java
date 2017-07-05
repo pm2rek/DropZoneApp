@@ -73,7 +73,6 @@ public class UserController {
 		public String processPayment(@PathVariable Long id, @RequestParam String value) {
 			User user = userRepository.findOne(id);
 			user.payment(value);
-			System.out.println(user.getAccountBalance());
 			userRepository.save(user);
 			return "redirect:/users/list";
 		}

@@ -14,6 +14,7 @@
 		<form:errors path="registration" cssClass="error" element="div" />
 		Registration: <form:input path="registration"/><br>
 		Passengers Limit: <input name="maxPassengers" type="number" /><br>
+		Ticket Price: <input name="ticketPrice" type="number" /><br>
 		<input type="submit" value="Submit">
 
 	</form:form>

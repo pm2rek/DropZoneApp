@@ -1,6 +1,6 @@
 package pl.coderslab.controller;
 
-import javax.validation.Valid;
+import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.coderslab.model.Aircraft;
-import pl.coderslab.model.Flight;
 import pl.coderslab.repository.AircraftRepository;
 
 @Controller
@@ -38,12 +37,13 @@ public class AircraftController {
 	}
 
 	@RequestMapping(path = "/add", method = RequestMethod.POST)
-	public String processAddAircraft(@RequestParam int maxPassengers, @ModelAttribute Aircraft aircraft,
+	public String processAddAircraft(@RequestParam int maxPassengers, @RequestParam int ticketPrice, @ModelAttribute Aircraft aircraft,
 			BindingResult result, Model model) {
-		aircraft.setMaxPassengers(maxPassengers);
 		if (result.hasErrors()) {
 			return "aircraftForm";
 		}
+		aircraft.setTicketPrice(new BigDecimal(ticketPrice));
+		aircraft.setMaxPassengers(maxPassengers);
 		aircraftRepository.save(aircraft);
 		return "redirect:/aircrafts/list";
 	}
