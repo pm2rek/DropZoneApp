@@ -55,7 +55,7 @@ public class MainViewController {
 		User userToCheck = userRepository.findByEmail(user.getEmail());
 		if (userToCheck != null && passwordEncoder.matches(user.getPassword(), userToCheck.getPassword())) {
 			request.getSession().setAttribute("userId", userToCheck.getId());
-			return "mainAppView";
+			return "mainAppView3";
 		} else {
 			request.getSession().removeAttribute("userId");
 			request.setAttribute("invalid", "The username and password you entered did not match our records.");
@@ -67,7 +67,7 @@ public class MainViewController {
 	public String isAuthenticated(HttpServletRequest request) {
 		try {
 			String userId = request.getSession().getAttribute("userId").toString();
-			return "mainAppView";
+			return "mainAppView3";
 		} catch (Exception e) {
 			return "redirect:/login";
 		}

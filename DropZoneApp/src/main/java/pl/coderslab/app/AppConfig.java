@@ -13,29 +13,30 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan(basePackages="pl.coderslab")
-@EnableJpaRepositories(basePackages="pl.coderslab.repository")
+@ComponentScan(basePackages = "pl.coderslab")
+@EnableJpaRepositories(basePackages = "pl.coderslab.repository")
 public class AppConfig extends WebMvcConfigurerAdapter {
-	
+
 	@Bean
 	public LocalEntityManagerFactoryBean entityManagerFactory() {
 		LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
 		emfb.setPersistenceUnitName("DropZoneApp");
 		return emfb;
 	}
-	
+
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
 		JpaTransactionManager jtm = new JpaTransactionManager();
 		return jtm;
 	}
-	
+
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -43,9 +44,14 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
-	
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-	    return new BCryptPasswordEncoder();
-}
+		return new BCryptPasswordEncoder();
+	}
+
+	@Override
+	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
 }
