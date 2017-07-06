@@ -14,19 +14,19 @@
     <title>DropZone Managment App</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/DropZoneApp/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/DropZoneApp/resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="resources/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/DropZoneApp/resources/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="resources/vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="/DropZoneApp/resources/vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/DropZoneApp/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,19 +36,6 @@
     <![endif]-->
 
 <body>
-<%-- 	<p>${invalid}</p>
-	<form:form method="post" modelAttribute="user">
-	<form:errors path="email" cssClass="error" element="div"/>
-	Email: <form:input path="email" /><br>
-	<form:errors path="password" cssClass="error" element="div" />
-	Password: <form:password path="password" /><br>
-	<input type="submit" value="Submit">
-
-	</form:form> 
-	
-	<a href="./register"> Sign up</a>--%>
-	
-
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -78,21 +65,21 @@
     </div>
 
     <!-- jQuery -->
-    <script src="resources/vendor/jquery/jquery.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="resources/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="resources/vendor/raphael/raphael.min.js"></script>
-    <script src="resources/vendor/morrisjs/morris.min.js"></script>
-    <script src="resources/data/morris-data.js"></script>
+    <script src="/DropZoneApp/resources/vendor/raphael/raphael.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/morrisjs/morris.min.js"></script>
+    <script src="/DropZoneApp/resources/data/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="resources/dist/js/sb-admin-2.js"></script>
+    <script src="/DropZoneApp/resources/dist/js/sb-admin-2.js"></script>
 
 </body>
 </html>

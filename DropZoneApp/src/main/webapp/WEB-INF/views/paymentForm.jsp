@@ -14,16 +14,16 @@
     <title>DropZone Managment App</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/DropZoneApp/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../../resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/DropZoneApp/resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../resources/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/DropZoneApp/resources/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../../resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/DropZoneApp/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../">Main</a>
+                <a class="navbar-brand" href="/DropZoneApp/">Main</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -60,7 +60,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../../logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/DropZoneApp/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -84,43 +84,43 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="../../"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="/DropZoneApp/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="../../flights/list"><i class="fa fa-paper-plane fa-fw"></i> Loads<span class="fa arrow"></span></a>
+                            <a href="/DropZoneApp/flights/list"><i class="fa fa-paper-plane fa-fw"></i> Loads<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../../flights/list">List</a>
+                                    <a href="/DropZoneApp/flights/list">List</a>
                                 </li>
                                 <li>
-                                    <a href="../../flights/add">Add Load</a>
+                                    <a href="/DropZoneApp/flights/add">Add Load</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="../../users/list"><i class="fa fa-users fa-fw"></i> Users</a>
+                            <a href="/DropZoneApp/users/list"><i class="fa fa-users fa-fw"></i> Users</a>
                         </li>
                         <li>
-                            <a href="../../parachutes/list"><i class="fa fa-soundcloud fa-fw"></i> Parachutes<span class="fa arrow"></span></a>
+                            <a href="/DropZoneApp/parachutes/list"><i class="fa fa-soundcloud fa-fw"></i> Parachutes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../../parachutes/list">List</a>
+                                    <a href="/DropZoneApp/parachutes/list">List</a>
                                 </li>
                                 <li>
-                                    <a href="../../parachutes/add">Add Parachute</a>
+                                    <a href="/DropZoneApp/parachutes/add">Add Parachute</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="../../aircrafts/list"><i class="fa fa-plane fa-fw"></i> Aircrafts<span class="fa arrow"></span></a>
+                            <a href="/DropZoneApp/aircrafts/list"><i class="fa fa-plane fa-fw"></i> Aircrafts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../../aircrafts/list">List</a>
+                                    <a href="/DropZoneApp/aircrafts/list">List</a>
                                 </li>
                                 <li>
-                                    <a href="../../aircrafts/add">Add Aircraft</a>
+                                    <a href="/DropZoneApp/aircrafts/add">Add Aircraft</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -174,21 +174,21 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../../resources/vendor/jquery/jquery.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../../resources/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="../../resources/vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../../resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="../../resources/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="/DropZoneApp/resources/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="/DropZoneApp/resources/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../../resources/dist/js/sb-admin-2.js"></script>
+    <script src="/DropZoneApp/resources/dist/js/sb-admin-2.js"></script>
 
 </body>
 </html>
