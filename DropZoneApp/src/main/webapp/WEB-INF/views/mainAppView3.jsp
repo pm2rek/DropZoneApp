@@ -92,13 +92,13 @@
                             <a href="./"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="./flights/list"><i class="fa fa-paper-plane fa-fw"></i> Flight<span class="fa arrow"></span></a>
+                            <a href="./flights/list"><i class="fa fa-paper-plane fa-fw"></i> Load<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="./flights/list">List</a>
                                 </li>
                                 <li>
-                                    <a href="./flights/add">Add Flight</a>
+                                    <a href="./flights/add">Add Load</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
