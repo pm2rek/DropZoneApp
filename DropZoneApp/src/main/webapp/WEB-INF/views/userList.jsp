@@ -6,91 +6,203 @@
 <html>
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, shrink-to-fit=no, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<title>DropZone Managment App</title>
+    <title>DropZone Flight List</title>
 
-<!-- Bootstrap Core CSS -->
-<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom CSS -->
-<link href="../resources/css/simple-sidebar.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="../resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
+    <!-- DataTables CSS -->
+    <link href="../resources/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../resources/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../resources/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
 <body>
-	<div id="wrapper">
+<div id="wrapper">	
+<!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">Main</a>
+            </div>
+            <!-- /.navbar-header -->
 
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper">
-			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="../"> Main </a></li>
-				<li><a href="./users/list"> Users</a></li>
-				<li><a href="./aircrafts/list"> Aircrafts</a></li>
-				<li><a href="./flights/list"> Flights</a></li>
-				<li><a href="./parachutes/list"> Parachutes</a></li>
-				<li><a href="./logout"> Logout</a></li>
-			</ul>
-		</div>
-		<!-- /#sidebar-wrapper -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="./logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
 
-		<!-- Page Content -->
-		<div id="page-content-wrapper">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12">
-						<table>
-							<tr>
-								<th>FIRST NAME</th>
-								<th>LAST NAME</th>
-								<th>EMAIL</th>
-							</tr>
-							<c:forEach items="${user}" var="user">
-								<tr>
-									<td>${user.firstName}</td>
-									<td>${user.lastName}</td>
-									<td>${user.email}</td>
-									<td><a href="payment/${user.id}" />Payment</td>
-									<td><a href="edit/${user.id}" />edit</td>
-									<td><a href="delete/${user.id}" />delete</td>
-								</tr>
-							</c:forEach>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="../"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="./flights/list"><i class="fa fa-paper-plane fa-fw"></i> Loads<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../flights/list">List</a>
+                                </li>
+                                <li>
+                                    <a href="../flights/add">Add Load</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="../users/list"><i class="fa fa-users fa-fw"></i> Users</a>
+                        </li>
+                        <li>
+                            <a href="../parachutes/list"><i class="fa fa-soundcloud fa-fw"></i> Parachutes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../parachutes/list">List</a>
+                                </li>
+                                <li>
+                                    <a href="../parachutes/add">Add Parachute</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="../aircrafts/list"><i class="fa fa-plane fa-fw"></i> Aircrafts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../aircrafts/list">List</a>
+                                </li>
+                                <li>
+                                    <a href="../aircrafts/add">Add Aircraft</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Users</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                           	<th>FIRST NAME</th>
+											<th>LAST NAME</th>
+											<th>EMAIL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${user}" var="user">
+											<tr>
+												<td>${user.firstName}</td>
+												<td>${user.lastName}</td>
+												<td>${user.email}</td>
+												<td><a href="payment/${user.id}" />Payment</td>
+												<td><a href="edit/${user.id}" />edit</td>
+												<td><a href="delete/${user.id}" />delete</td>
+											</tr>
+										</c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-612 -->
+            </div>
+        </div>
+                <!-- /#page-wrapper -->
 
-						</table> 
-						<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle
-							Menu</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
-	</div>
-	<!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../resources/vendor/jquery/jquery.min.js"></script>
 
-	<!-- jQuery -->
-	<script src="../resources/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../resources/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
 
-	<!-- Menu Toggle Script -->
-	<script>
-		$("#menu-toggle").click(function(e) {
-			e.preventDefault();
-			$("#wrapper").toggleClass("toggled");
-		});
-	</script>
+    <!-- DataTables JavaScript -->
+    <script src="../resources/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../resources/vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../resources/dist/js/sb-admin-2.js"></script>
+
 </body>
 </html>
